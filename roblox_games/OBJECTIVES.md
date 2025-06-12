@@ -24,7 +24,12 @@
 <ins>Floors</ins>
 - Reach floor (1-9)
 - Reach floor (1-9) with an owned character
+- Reach floor (1-9) with an owned trinket equipped
+- Reach floor (1-9) with an owned trinket equipped and an owned character
 - Reach floor 10 (Time-Consuming)
+- Reach floor 10 with an owned trinket equipped (Time-Consuming)
+- Reach floor 10 with an owned character (Time-Consuming)
+- Reach floor 10 with an owned trinket equipped and an owned character (Time-Consuming)
 
 <ins>Items</ins>
 - Pick up (1-10) items in a floor
