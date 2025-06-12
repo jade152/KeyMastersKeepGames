@@ -32,7 +32,7 @@ class TouhouSevenGame(Game):
                 data=dict(),
             ),
             GameObjectiveTemplate(
-                label="Complete a trial without losing a life without using a bomb",
+                label="Complete a trial without losing a life and without using a bomb",
                 data=dict(),
             ),
         ]
@@ -102,7 +102,7 @@ class TouhouSevenGame(Game):
                     "CHARACTER": (self.player_characters, 1),
                 },
                 is_time_consuming=False,
-                is_difficult=False,
+                is_difficult=True,
                 weight=1,
             ),
             GameObjectiveTemplate(
@@ -257,7 +257,7 @@ class TouhouSevenGame(Game):
                     "CHARACTER": (self.player_characters, 1),
                 },
                 is_time_consuming=True,
-                is_difficult=True,
+                is_difficult=False,
                 weight=1,
             ),
             GameObjectiveTemplate(
@@ -266,7 +266,7 @@ class TouhouSevenGame(Game):
                     "CHARACTER": (self.player_characters, 1),
                 },
                 is_time_consuming=True,
-                is_difficult=True,
+                is_difficult=False,
                 weight=1,
             ),
             GameObjectiveTemplate(
