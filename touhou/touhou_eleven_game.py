@@ -323,7 +323,7 @@ class TouhouElevenGame(Game):
                     "CHARACTER": (self.player_characters, 1),
                 },
                 is_time_consuming=True,
-                is_difficult=True,
+                is_difficult=False,
                 weight=1,
             ),
             GameObjectiveTemplate(
@@ -332,7 +332,7 @@ class TouhouElevenGame(Game):
                     "CHARACTER": (self.player_characters, 1),
                 },
                 is_time_consuming=True,
-                is_difficult=True,
+                is_difficult=False,
                 weight=1,
             ),
             GameObjectiveTemplate(
