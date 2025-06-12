@@ -61,6 +61,27 @@ class DandysWorldGame(Game):
                 weight=3,
             ),
             GameObjectiveTemplate(
+                label="Reach floor COUNT with TRINKET equipped",
+                data={
+                    "COUNT": (self.floor_range, 1),
+                    "TRINKET": (self.trinkets, 1),
+                },
+                is_time_consuming=False,
+                is_difficult=False,
+                weight=3,
+            ),
+            GameObjectiveTemplate(
+                label="Reach floor COUNT with TRINKET equipped as CHARACTER",
+                data={
+                    "COUNT": (self.floor_range, 1),
+                    "TRINKET": (self.trinkets, 1),
+                    "CHARACTER": (self.characters, 1),
+                },
+                is_time_consuming=False,
+                is_difficult=False,
+                weight=3,
+            ),
+            GameObjectiveTemplate(
                 label="Pick up COUNT items in a floor",
                 data={
                     "COUNT": (self.item_count_range, 1),
@@ -159,6 +180,25 @@ class DandysWorldGame(Game):
             GameObjectiveTemplate(
                 label="Reach floor 10 as CHARACTER",
                 data={
+                    "CHARACTER": (self.characters, 1),
+                },
+                is_time_consuming=True,
+                is_difficult=False,
+                weight=1,
+            ),
+            GameObjectiveTemplate(
+                label="Reach floor 10 with TRINKET equipped",
+                data={
+                    "TRINKET": (self.trinkets, 1),
+                },
+                is_time_consuming=True,
+                is_difficult=False,
+                weight=1,
+            ),
+            GameObjectiveTemplate(
+                label="Reach floor 10 with TRINKET equipped as CHARACTER",
+                data={
+                    "TRINKET": (self.trinkets, 1),
                     "CHARACTER": (self.characters, 1),
                 },
                 is_time_consuming=True,
