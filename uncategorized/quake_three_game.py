@@ -44,7 +44,7 @@ class QuakeThreeGame(Game):
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
-                    "MAP": (self.maps_deathmatch, 1),
+                    "MAP": (self. a, 1),
                     },
                 is_time_consuming=False,
                 is_difficult=False,
@@ -84,7 +84,7 @@ class QuakeThreeGame(Game):
                 weight=2,
                 ),
                 GameObjectiveTemplate(
-                label="Win a Free For All game against COUNT Bots(s) on SKILL in MAP against the following character: CHARACTER",
+                label="Win a Free For All game against COUNT Bots(s) on SKILL in MAP with this character present: CHARACTER",
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
@@ -96,7 +96,7 @@ class QuakeThreeGame(Game):
                 weight=2,
                 ),
                 GameObjectiveTemplate(
-                label="Win a Team Deathmatch game against COUNT Bots(s) on SKILL in MAP against the following character: CHARACTER",
+                label="Win a Team Deathmatch game against COUNT Bots(s) on SKILL in MAP with this character present: CHARACTER",
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
@@ -108,7 +108,7 @@ class QuakeThreeGame(Game):
                 weight=2,
                 ),
                 GameObjectiveTemplate(
-                label="Win a Tournament game against COUNT Bots(s) on SKILL in MAP against the following character: CHARACTER",
+                label="Win a Tournament game against COUNT Bots(s) on SKILL in MAP with this character present: CHARACTER",
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
@@ -120,7 +120,7 @@ class QuakeThreeGame(Game):
                 weight=1,
                 ),
                 GameObjectiveTemplate(
-                label="Win a Capture The Flag game against COUNT Bots(s) on SKILL in MAP against the following character: CHARACTER",
+                label="Win a Capture The Flag game against COUNT Bots(s) on SKILL in MAP with this character present: CHARACTER",
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
@@ -132,7 +132,7 @@ class QuakeThreeGame(Game):
                 weight=1,
                 ),
                 GameObjectiveTemplate(
-                label="Win a Free For All game against COUNT Bots(s) on SKILL in MAP against the following characters: CHARACTERS",
+                label="Win a Free For All game against COUNT Bots(s) on SKILL in MAP with these characters present: CHARACTERS",
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
@@ -144,7 +144,7 @@ class QuakeThreeGame(Game):
                 weight=2,
                 ),
                 GameObjectiveTemplate(
-                label="Win a Team Deathmatch game against COUNT Bots(s) on SKILL in MAP against the following characters: CHARACTERS",
+                label="Win a Team Deathmatch game against COUNT Bots(s) on SKILL in MAP with these characters present: CHARACTERS",
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
@@ -156,7 +156,7 @@ class QuakeThreeGame(Game):
                 weight=2,
                 ),
                 GameObjectiveTemplate(
-                label="Win a Tournament game against COUNT Bots(s) on SKILL in MAP against the following characters: CHARACTERS",
+                label="Win a Tournament game against COUNT Bots(s) on SKILL in MAP with these characters present: CHARACTERS",
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
@@ -168,7 +168,7 @@ class QuakeThreeGame(Game):
                 weight=1,
                 ),
                 GameObjectiveTemplate(
-                label="Win a Capture The Flag game against COUNT Bots(s) on SKILL in MAP against the following characters: CHARACTERS",
+                label="Win a Capture The Flag game against COUNT Bots(s) on SKILL in MAP with these characters present: CHARACTERS",
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
@@ -180,7 +180,7 @@ class QuakeThreeGame(Game):
                 weight=1,
                 ),
                 GameObjectiveTemplate(
-                label="Win a Free For All game against COUNT Bots(s) on SKILL in MAP against the following characters: CHARACTERS",
+                label="Win a Free For All game against COUNT Bots(s) on SKILL in MAP with these characters present: CHARACTERS",
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
@@ -192,7 +192,7 @@ class QuakeThreeGame(Game):
                 weight=1,
                 ),
                 GameObjectiveTemplate(
-                label="Win a Team Deathmatch game against COUNT Bots(s) on SKILL in MAP against the following characters: CHARACTERS",
+                label="Win a Team Deathmatch game against COUNT Bots(s) on SKILL in MAP with these characters present: CHARACTERS",
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
@@ -204,7 +204,7 @@ class QuakeThreeGame(Game):
                 weight=1,
                 ),
                 GameObjectiveTemplate(
-                label="Win a Tournament game against COUNT Bots(s) on SKILL in MAP against the following characters: CHARACTERS",
+                label="Win a Tournament game against COUNT Bots(s) on SKILL in MAP with these characters present: CHARACTERS",
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
@@ -216,7 +216,7 @@ class QuakeThreeGame(Game):
                 weight=1,
                 ),
                 GameObjectiveTemplate(
-                label="Win a Capture The Flag game against COUNT Bots(s) on SKILL in MAP against the following characters: CHARACTERS",
+                label="Win a Capture The Flag game against COUNT Bots(s) on SKILL in MAP with these characters present: CHARACTERS",
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
