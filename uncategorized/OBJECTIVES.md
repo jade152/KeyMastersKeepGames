@@ -1,16 +1,3 @@
-## Artwork
-### Objectives
-- Make something to the following specification: a random subject, a random theme
-- Make something taking inspiration from a randomly generated prompt
- - Requires `Include Random Prompts` to be set to `true`
-
-### Constraints
-- Avoid three randomly chosen color groups
-- Try to work with three randomly chosen color groups
-- Change something about your usual process / tools
-- Try to work in a randomly chosen style
-- Take inspiration from the work of a randomly chose artist
-
 ## Quake 3 Arena
 ### Objectives
 - Win a Free For All game against (1-11) Bots(s) on a random skill in a random Free For All map
