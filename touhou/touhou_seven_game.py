@@ -21,7 +21,7 @@ class TouhouSevenGame(Game):
 
     platforms_other = None
 
-    is_adult_only_or_unrated = False
+    is_adult_only_or_unrated = True
 
     options_cls = TouhouSevenArchipelagoOptions
 

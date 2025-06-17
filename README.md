@@ -5,6 +5,7 @@ Keymaster's Keep games maintained by jade152
 <ins>Touhou Games</ins>
  - Touhou Chireiden ~ Subterranean Animism 
  - Touhou Youyoumu ~ Perfect Cherry Blossom
+ - Touhou Kanjuden ~ Legacy of Lunatic Kingdom (forked from the [KeymastersKeepGameArchive repository](https://github.com/SerpentAI/KeymastersKeepGameArchive))
 
 <ins>Roblox Games</ins>
  - Dandy's World
