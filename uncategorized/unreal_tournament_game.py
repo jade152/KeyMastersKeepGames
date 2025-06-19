@@ -1,8 +1,12 @@
 from __future__ import annotations
 
+import functools
+
 from typing import List
 
 from dataclasses import dataclass
+
+from Options import OptionSet
 
 from ..game import Game
 from ..game_objective_template import GameObjectiveTemplate
@@ -11,11 +15,16 @@ from ..enums import KeymastersKeepGamePlatforms
 
 
 @dataclass
-class UnrealTournamentGameOfTheYearEditionArchipelagoOptions:
-    pass
+class UnrealTournamentArchipelagoOptions:
+    unreal_tournament_custom_assault_maps: UnrealTournamentCustomAssaultMaps
+    unreal_tournament_custom_ctf_maps: UnrealTournamentCustomCTFMaps
+    unreal_tournament_custom_deathmatch_maps: UnrealTournamentCustomDeathmatchMaps
+    unreal_tournament_custom_domination_maps: UnrealTournamentCustomDominationhMaps
+    unreal_tournament_custom_mutators: UnrealTournamentCustomMutators
+    
 
 
-class UnrealTournamentGameOfTheYearEditionGame(Game):
+class UnrealTournamentGame(Game):
     name = "Unreal Tournament: Game of the Year Edition"
     platform = KeymastersKeepGamePlatforms.PC
 
@@ -26,7 +35,7 @@ class UnrealTournamentGameOfTheYearEditionGame(Game):
 
     is_adult_only_or_unrated = False
 
-    options_cls = UnrealTournamentGameOfTheYearEditionArchipelagoOptions
+    options_cls = UnrealTournamentArchipelagoOptions
 
     def optional_game_constraint_templates(self) -> List[GameObjectiveTemplate]:
         return [
@@ -277,8 +286,8 @@ class UnrealTournamentGameOfTheYearEditionGame(Game):
             ),
         ]
 
-    @staticmethod
-    def maps_assault() -> List[str]:
+    @functools.cached_property
+    def base_maps_assault(self) -> List[str]:
         return [
             "AS-Frigate",
             "AS-Guardia",
@@ -289,8 +298,8 @@ class UnrealTournamentGameOfTheYearEditionGame(Game):
             "AS-Rook",
         ]
 
-    @staticmethod
-    def maps_ctf() -> List[str]:
+    @functools.cached_property
+    def base_maps_ctf(self) -> List[str]:
         return [
             "CTF-Command",
             "CTF-Coret",
@@ -312,8 +321,8 @@ class UnrealTournamentGameOfTheYearEditionGame(Game):
             "CTF-Nucleus",
         ]
 
-    @staticmethod
-    def maps_deathmatch() -> List[str]:
+    @functools.cached_property
+    def base_maps_deathmatch(self) -> List[str]:
         return [
             "DM-Barricade",
             "DM-Codex",
@@ -350,8 +359,8 @@ class UnrealTournamentGameOfTheYearEditionGame(Game):
             "DM-SpaceNoxx",
         ]
 
-    @staticmethod
-    def maps_domination() -> List[str]:
+    @functools.cached_property
+    def base_maps_domination(self) -> List[str]:
         return [
             "DOM-Cinder",
             "DOM-Condemned",
@@ -378,8 +387,8 @@ class UnrealTournamentGameOfTheYearEditionGame(Game):
             "Godlike",
         ]
 
-    @staticmethod
-    def mutators() -> List[str]:
+    @functools.cached_property
+    def base_mutators(self) -> List[str]:
         return [
             "Flak Cannon Arena",
             "Pulse Arena",
@@ -420,5 +429,140 @@ class UnrealTournamentGameOfTheYearEditionGame(Game):
             "Turbo",
         ]
 
+    @property
+    def include_custom_assault_maps(self) -> bool:
+        return bool(len(self.archipelago_options.unreal_tournament_custom_assault_maps.value) >= 0)
+
+    @property
+    def include_custom_ctf_maps(self) -> bool:
+        return bool(len(self.archipelago_options.unreal_tournament_custom_ctf_maps.value) >= 0)
+    
+    @property
+    def include_custom_deathmatch_maps(self) -> bool:
+        return bool(len(self.archipelago_options.unreal_tournament_custom_deathmatch_maps.value) >= 0)
+    
+    @property
+    def include_custom_domination_maps(self) -> bool:
+        return bool(len(self.archipelago_options.unreal_tournament_custom_domination_maps.value) >= 0)
+
+    @property
+    def include_custom_mutators(self) -> bool:
+        return bool(len(self.archipelago_options.unreal_tournament_custom_mutators.value) >= 0)
+    
+    @property
+    def custom_maps_assault(self) -> List[str]:
+        return sorted(self.archipelago_options.unreal_tournament_custom_assault_maps.value)
+    
+    @property
+    def custom_maps_ctf(self) -> List[str]:
+        return sorted(self.archipelago_options.unreal_tournament_custom_ctf_maps.value)
+    
+    @property
+    def custom_maps_deathmatch(self) -> List[str]:
+        return sorted(self.archipelago_options.unreal_tournament_custom_deathmatch_maps.value)
+    
+    @property
+    def custom_maps_domination(self) -> List[str]:
+        return sorted(self.archipelago_options.unreal_tournament_custom_domination_maps.value)
+
+    @property
+    def custom_mutators(self) -> List[str]:
+        return sorted(self.archipelago_options.unreal_tournament_custom_mutators)
+
+
+    def maps_assault(self) -> List[str]:
+        maps: List[str] = self.base_maps_assault[:]
+        if self.include_custom_assault_maps:
+            maps = maps + self.custom_maps_assault[:]
+        
+        return sorted(maps)
+
+    def maps_ctf(self) -> List[str]:
+        maps: List[str] = self.base_maps_ctf[:]
+        if self.include_custom_ctf_maps:
+            maps = maps + self.custom_maps_ctf[:]
+        
+        return sorted(maps)
+
+    def maps_deathmatch(self) -> List[str]:
+        maps: List[str] = self.base_maps_deathmatch[:]
+        if self.include_custom_deathmatch_maps:
+            maps = maps + self.custom_maps_deathmatch[:]
+        
+        return sorted(maps)
+
+    def maps_domination(self) -> List[str]:
+        maps: List[str] = self.base_maps_ctf[:]
+        if self.include_custom_domination_maps:
+            maps = maps + self.custom_maps_domination[:]
+        
+        return sorted(maps)
+
+    def mutators(self) -> List[str]:
+        mutators: List[str] = self.base_mutators[:]
+        if self.include_custom_mutators:
+            mutators = mutators + self.custom_mutators[:]
+        
+        return sorted(mutators)
+
+
 # Archipelago Options
 # ...
+class UnrealTournamentCustomAssaultMaps(OptionSet):
+    """
+    Indicates custom Assault maps the player has installed and want to possibly play on 
+    """
+    display_name = "Custom Assault Maps"
+
+    default = [
+        "AS-Map",
+        "AS-Map][",
+        "AS-Map3",
+    ]
+
+class UnrealTournamentCustomCTFMaps(OptionSet):
+    """
+    Indicates custom Capture The Flag maps the player has installed and want to possibly play on 
+    """
+    display_name = "Custom Capture The Flag Maps"
+
+    default = [
+        "CTF-Map",
+        "CTF-Map][",
+        "CTF-Map3",
+    ]
+
+class UnrealTournamentCustomDeathmatchMaps(OptionSet):
+    """
+    Indicates custom Deathmatch maps the player has installed and want to possibly play on 
+    """
+    display_name = "Custom Deathmatch Maps"
+
+    default = [
+        "DM-Map",
+        "DM-Map][",
+        "DM-Map3",
+    ]
+
+class UnrealTournamentCustomDominationhMaps(OptionSet):
+    """
+    Indicates custom Domination maps the player has installed and want to possibly play on 
+    """
+    display_name = "Custom Domination Maps"
+
+    default = [
+        "DOM-Map",
+        "DOM-Map][",
+        "DOM-Map3",
+    ]
+
+class UnrealTournamentCustomMutators(OptionSet):
+    """
+    Indicates custom Mutators the player has installed and want to possibly activate
+    """
+    display_name = "Custom Mutators"
+    default = [
+        "Mutator 1",
+        "Mutator 2",
+        "Mutator 3"
+    ]
