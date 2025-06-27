@@ -44,7 +44,7 @@ class QuakeThreeGame(Game):
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
-                    "MAP": (self. a, 1),
+                    "MAP": (self.maps_deathmatch, 1),
                     },
                 is_time_consuming=False,
                 is_difficult=False,
