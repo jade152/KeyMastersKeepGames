@@ -77,7 +77,7 @@ class QuakeThreeGame(Game):
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
-                    "MAP": (self.maps_tournament, 1)
+                    "MAP": (self.maps_ctf, 1)
                     },
                 is_time_consuming=False,
                 is_difficult=False,
@@ -124,7 +124,7 @@ class QuakeThreeGame(Game):
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
-                    "MAP": (self.maps_tournament, 1),
+                    "MAP": (self.maps_ctf, 1),
                     "CHARACTER": (self.characters, 1)
                     },
                 is_time_consuming=False,
@@ -172,7 +172,7 @@ class QuakeThreeGame(Game):
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
-                    "MAP": (self.maps_tournament, 1),
+                    "MAP": (self.maps_ctf, 1),
                     "CHARACTERS": (self.characters, 2)
                     },
                 is_time_consuming=False,
@@ -220,7 +220,7 @@ class QuakeThreeGame(Game):
                 data={
                     "COUNT": (self.bot_count_range, 1),
                     "SKILL": (self.skill_levels, 1),
-                    "MAP": (self.maps_tournament, 1),
+                    "MAP": (self.maps_ctf, 1),
                     "CHARACTERS": (self.characters, 3)
                     },
                 is_time_consuming=False,
