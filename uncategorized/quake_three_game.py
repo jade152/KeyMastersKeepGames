@@ -65,7 +65,7 @@ class QuakeThreeGame(Game):
                     "SKILL": (self.skill_levels, 1),
                     "MAP": (self.maps_team_deathmatch, 1),
                     },
-                is_time_consuming=False,
+                is_time_consuming=True,
                 is_difficult=False,
                 weight=3,
                 ),
@@ -76,7 +76,7 @@ class QuakeThreeGame(Game):
                     "SKILL": (self.skill_levels, 1),
                     "MAP": (self.maps_tournament, 1),
                     },
-                is_time_consuming=False,
+                is_time_consuming=True,
                 is_difficult=False,
                 weight=2,
                 ),
@@ -111,7 +111,7 @@ class QuakeThreeGame(Game):
                     "MAP": (self.maps_team_deathmatch, 1),
                     "CHARACTER": (self.characters, 1)
                     },
-                is_time_consuming=False,
+                is_time_consuming=True,
                 is_difficult=False,
                 weight=2,
                 ),
@@ -123,7 +123,7 @@ class QuakeThreeGame(Game):
                     "MAP": (self.maps_tournament, 1),
                     "CHARACTER": (self.characters, 1)
                     },
-                is_time_consuming=False,
+                is_time_consuming=True,
                 is_difficult=False,
                 weight=1,
                 ),
@@ -159,7 +159,7 @@ class QuakeThreeGame(Game):
                     "MAP": (self.maps_team_deathmatch, 1),
                     "CHARACTERS": (self.characters, 2)
                     },
-                is_time_consuming=False,
+                is_time_consuming=True,
                 is_difficult=False,
                 weight=2,
                 ),
@@ -171,7 +171,7 @@ class QuakeThreeGame(Game):
                     "MAP": (self.maps_tournament, 1),
                     "CHARACTERS": (self.characters, 2)
                     },
-                is_time_consuming=False,
+                is_time_consuming=True,
                 is_difficult=False,
                 weight=1,
                 ),
@@ -207,7 +207,7 @@ class QuakeThreeGame(Game):
                     "MAP": (self.maps_team_deathmatch, 1),
                     "CHARACTERS": (self.characters, 3)
                     },
-                is_time_consuming=False,
+                is_time_consuming=True,
                 is_difficult=False,
                 weight=1,
                 ),
@@ -219,7 +219,7 @@ class QuakeThreeGame(Game):
                     "MAP": (self.maps_tournament, 1),
                     "CHARACTERS": (self.characters, 3)
                     },
-                is_time_consuming=False,
+                is_time_consuming=True,
                 is_difficult=False,
                 weight=1,
                 ),
