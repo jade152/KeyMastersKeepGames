@@ -19,6 +19,7 @@ Keymaster's Keep games maintained by jade152
  - Mosa Lina
  - Boneworks
  - Bonelab
+ - Team Fortress 2
 
 ### Known issues/Planned Changes
 <ins>Unreal Tournament:  Game of The Year Edition</ins>
@@ -26,15 +27,12 @@ Keymaster's Keep games maintained by jade152
 - Set maps and bots to mirror content in Playstation 2 and Dreamcast versions
 - Allow player to set max bot skill level
 - Include user generated content
-     - Maps
      - Gamemodes
      - Mutators
 
 <ins>Quake 3: Arena</ins>
 - Set maps and bots to mirror content in the Dreamcast version
 - Allow player to set max bot skill level
-- Include user generated content
-    - Maps
 
 <ins>Touhou Games</ins>
 - Adjust Score and Graze range values

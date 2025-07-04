@@ -1,8 +1,12 @@
 from __future__ import annotations
 
+import functools
+
 from typing import List
 
 from dataclasses import dataclass
+
+from Options import OptionSet
 
 from ..game import Game
 from ..game_objective_template import GameObjectiveTemplate
@@ -12,7 +16,11 @@ from ..enums import KeymastersKeepGamePlatforms
 
 @dataclass
 class QuakeThreeArchipelagoOptions:
-    pass
+    quake_three_custom_deathmatch_maps: QuakeThreeCustomDeathmatchMaps
+    quake_three_custom_team_deathmatch_maps: QuakeThreeCustomTeamDeathmatchMaps
+    quake_three_custom_tournament_maps: QuakeThreeCustomTournamentMaps
+    quake_three_custom_ctf_maps: QuakeThreeCustomCTFMaps
+    quake_three_custom_characters: QuakeThreeCustomCharacters
 
 class QuakeThreeGame(Game):
     name = "Quake 3 Arena"
@@ -23,7 +31,7 @@ class QuakeThreeGame(Game):
         KeymastersKeepGamePlatforms.DC,
         ]
 
-    is_adult_only_or_unrated = False
+    is_adult_only_or_unrated = True
 
     options_cls = QuakeThreeArchipelagoOptions
 
@@ -229,17 +237,8 @@ class QuakeThreeGame(Game):
                 ),
             ]
 
-    @staticmethod
-    def game_types() -> List[str]:
-        return [
-            "Free For All",
-            "Team Deathmatch",
-            "Tournament",
-            "Capture The Flag",
-            ]
-
-    @staticmethod
-    def maps_deathmatch() -> List[str]:
+    @functools.cached_property
+    def base_maps_deathmatch() -> List[str]:
         return [
         "Q3DM10: The Nameless Place",
         "Q3DM11: Deva Station",
@@ -273,8 +272,8 @@ class QuakeThreeGame(Game):
         "PRO_Q3TOURNEY4: Vertical Vengeance II",
         ]
 
-    @staticmethod
-    def maps_team_deathmatch() -> List[str]:
+    @functools.cached_property
+    def base_maps_team_deathmatch() -> List[str]:
         return [
         "Q3DM12: The Dredwerkz",
         "Q3DM14: Grim Dungeons",
@@ -289,8 +288,8 @@ class QuakeThreeGame(Game):
         "PRO_Q3DM13: Lost World II",
         ]
 
-    @staticmethod
-    def maps_tournament() -> List[str]:
+    @functools.cached_property
+    def base_maps_tournament() -> List[str]:
         return [
             "Q3DM1: Arena Gate",
             "Q3DM2: House of Pain",
@@ -302,8 +301,8 @@ class QuakeThreeGame(Game):
             "PRO_Q3DM13: Lost World II",
             ]
 
-    @staticmethod
-    def maps_ctf() -> List[str]:
+    @functools.cached_property
+    def base_maps_ctf() -> List[str]:
         return [
             "Q3CTF1: Dueling Keeps",
             "Q3CTF2: Troubled Waters",
@@ -312,8 +311,8 @@ class QuakeThreeGame(Game):
             "Q3TOURNEY6_CTF: Across Space",
             ]
 
-    @staticmethod
-    def characters() -> List[str]:
+    @functools.cached_property
+    def base_characters() -> List[str]:
         return [
             "Anarki",
             "Angel",
@@ -325,7 +324,7 @@ class QuakeThreeGame(Game):
             "Daemia",
             "Doom",
             "Gorre",
-            "Grun",
+            "Grunt",
             "Hossman",
             "Hunter",
             "Keel",
@@ -371,6 +370,139 @@ class QuakeThreeGame(Game):
             "Gauntlet",
             ]
 
+    @property
+    def include_custom_deathmatch_maps(self) -> bool:
+        return bool(len(self.archipelago_options.quake_three_custom_deathmatch_maps.value) >= 0)
+
+    @property
+    def include_custom_team_deathmatch_maps(self) -> bool:
+        return bool(len(self.archipelago_options.quake_three_custom_team_deathmatch_maps.value) >= 0)
+
+    @property
+    def include_custom_tournament_maps(self) -> bool:
+        return bool(len(self.archipelago_options.quake_three_custom_tournament_maps.value) >= 0)
+
+    @property
+    def include_custom_ctf_maps(self) -> bool:
+        return bool(len(self.archipelago_options.quake_three_custom_ctf_maps.value) >= 0)
+
+    @property
+    def include_custom_characters(self) -> bool:
+        return bool(len(self.archipelago_options.quake_three_custom_characters.value) >= 0)
+
+    @property
+    def custom_maps_ctf(self) -> List[str]:
+        return sorted(self.archipelago_options.quake_three_custom_ctf_maps.value)
+
+    @property
+    def custom_maps_deathmatch(self) -> List[str]:
+        return sorted(self.archipelago_options.quake_three_custom_deathmatch_maps.value)
+
+    @property
+    def custom_maps_team_deathmatch(self) -> List[str]:
+        return sorted(self.archipelago_options.quake_three_custom_team_deathmatch_maps.value)
+
+    @property
+    def custom_maps_tournament(self) -> List[str]:
+        return sorted(self.archipelago_options.quake_three_custom_tournament_maps.value)
+
+    @property
+    def custom_characters(self) -> List[str]:
+        return sorted(self.archipelago_options.quake_three_custom_characters.value)
+
+    def maps_ctf(self) -> List[str]:
+        maps: List[str] = self.base_maps_ctf[:]
+        if self.include_custom_ctf_maps:
+            maps = maps + self.custom_maps_ctf[:]
+
+        return sorted(maps)
+
+    def maps_deathmatch(self) -> List[str]:
+        maps: List[str] = self.base_maps_deathmatch[:]
+        if self.include_custom_deathmatch_maps:
+            maps = maps + self.custom_maps_deathmatch[:]
+
+        return sorted(maps)
+
+    def maps_team_deathmatch(self) -> List[str]:
+        maps: List[str] = self.base_maps_team_deathmatch[:]
+        if self.include_custom_team_deathmatch_maps:
+            maps = maps + self.custom_maps_team_deathmatch[:]
+
+        return sorted(maps)
+
+    def maps_tournament(self) -> List[str]:
+        maps: List[str] = self.base_maps_tournament[:]
+        if self.include_custom_tournament_maps:
+            maps = maps + self.custom_maps_tournament[:]
+
+        return sorted(maps)
+
+    def characters(self) -> List[str]:
+        charas: List[str] = self.base_characters[:]
+        if self.include_custom_characters:
+            charas = charas + self.custom_characters[:]
+
+        return sorted(charas)
+
 # Archipelago Options
 # ...
+class QuakeThreeCustomDeathmatchMaps(OptionSet):
+    """
+    Indicates which custom deatmatch maps the player has installed and would like to play on
+    """
+    display_name = "Custom Free For All Maps"
 
+    default = [
+        "Q3DM-Map-1",
+        "Q3DM-Map-2",
+        "Q3DM-Map-3",
+    ]
+
+class QuakeThreeCustomTeamDeathmatchMaps(OptionSet):
+    """
+    Indicates which custom team deatmatch maps the player has installed and would like to play on
+    """
+    display_name = "Custom Team Deathmatch Maps"
+
+    default = [
+        "Q3DM-Map-1",
+        "Q3DM-Map-2",
+        "Q3DM-Map-3",
+    ]
+
+class QuakeThreeCustomTournamentMaps(OptionSet):
+    """
+    Indicates which custom tournament maps the player has installed and would like to play on
+    """
+    display_name = "Custom Tournament Maps"
+
+    default = [
+        "Q3DM-Map-1",
+        "Q3DM-Map-2",
+        "Q3DM-Map-3",
+    ]
+
+class QuakeThreeCustomCTFMaps(OptionSet):
+    """
+    Indicates which custom capture the flag maps the player has installed and would like to play on
+    """
+    display_name = "Custom Capture The Flag Maps"
+
+    default = [
+        "Q3CTF-Map-1",
+        "Q3CTF-Map-2",
+        "Q3CTF-Map-3",
+    ]
+
+class QuakeThreeCustomCharacters(OptionSet):
+    """
+    Indicates which custom characters the player has installed and would like to play against
+    """
+    display_name = "Custom Characters"
+
+    default = [
+        "Character 1",
+        "Character 2",
+        "Character 3",
+    ]
