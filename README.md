@@ -11,8 +11,9 @@ Keymaster's Keep games maintained by jade152
  - Dandy's World
  - Forsaken
 
-<ins>Uncategorized</ins>
+<ins>FPS</ins>
  - Quake 3 Arena
+ - Team Fortress 2
  - Unreal Tournament: Game of The Year Edition (forked from the [KeymastersKeepGameArchive repository](https://github.com/SerpentAI/KeymastersKeepGameArchive))
 
 ### Planned Implementations
