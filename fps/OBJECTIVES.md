@@ -12,6 +12,15 @@
 ### Constraints
 - Obtain a randomly chosen medal in this keep
 
+## Team Fortress 2
+### Objectives
+- Win a random gamemode on a random respective map
+- Win a game with a random class
+- Win a game with a random loadout
+
+### Constraints
+None
+
 ## Unreal Tournament: Game of the Year Edition
 ### Objectives
 - Win a Deathmatch game against (1-16) random skill Bot(s) in a random Deathmatch map
