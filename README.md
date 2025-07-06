@@ -20,7 +20,6 @@ Keymaster's Keep games maintained by jade152
  - Mosa Lina
  - Boneworks
  - Bonelab
- - Team Fortress 2
 
 ### Known issues/Planned Changes
 <ins>Unreal Tournament:  Game of The Year Edition</ins>
