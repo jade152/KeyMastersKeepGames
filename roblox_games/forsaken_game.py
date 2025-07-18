@@ -192,6 +192,7 @@ class ForsakenKillersOwned(OptionSet):
         "C00lkidd",
         "John Doe",
         "1x1x1x1",
+        "Noli",
     ]
 
     default = valid_keys
