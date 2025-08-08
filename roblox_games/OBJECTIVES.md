@@ -50,3 +50,4 @@
 
 <ins>Mscellaneous</ins>
 - Complete up (1-6) skill checks in a floor
+- Encounter an Ichor Leak Event

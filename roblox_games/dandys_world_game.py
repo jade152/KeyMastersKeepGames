@@ -226,6 +226,13 @@ class DandysWorldGame(Game):
                 is_difficult=True,
                 weight=1,
             ),
+            GameObjectiveTemplate(
+                label="Encounter an Ichor Leak Event",
+                data=dict(),
+                is_time_consuming=False,
+                is_difficult=False,
+                weight=1,
+            ),
         ]
 
     @staticmethod
@@ -291,6 +298,7 @@ class DandysCharactersOwned(OptionSet):
         "Coal",
         "Ginger",
         "Rudie",
+        "Brusha",
     ]
 
     default = valid_keys
