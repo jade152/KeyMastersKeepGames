@@ -3,9 +3,12 @@ Keymaster's Keep games maintained by jade152
 
 ### Current Implementations
 <ins>Touhou Games</ins>
- - Touhou Chireiden ~ Subterranean Animism 
- - Touhou Youyoumu ~ Perfect Cherry Blossom
- - Touhou Kanjuden ~ Legacy of Lunatic Kingdom (forked from the [KeymastersKeepGameArchive repository](https://github.com/SerpentAI/KeymastersKeepGameArchive))
+ - Official Games:
+   - Touhou Chireiden ~ Subterranean Animism 
+   - Touhou Youyoumu ~ Perfect Cherry Blossom
+   - Touhou Kanjuden ~ Legacy of Lunatic Kingdom (forked from the [KeymastersKeepGameArchive repository](https://github.com/SerpentAI/KeymastersKeepGameArchive))
+ - Fangames:
+   - Sleeper Hunt (Touhou Artificial Dream in Arcadia)
 
 <ins>Roblox Games</ins>
  - Dandy's World
