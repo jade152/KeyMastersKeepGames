@@ -1,6 +1,11 @@
 ## Preface
-thprac is heavily recommend for these implementations. You can download it here: [https://github.com/touhouworldcup/thprac/releases/latest](https://github.com/touhouworldcup/thprac/releases/latest)
+thprac is heavily recommend for implementations of offical games. You can download it here: [https://github.com/touhouworldcup/thprac/releases/latest](https://github.com/touhouworldcup/thprac/releases/latest)
 Touhou games are considered unrated. If you want them to appear in your keep, change the `include_adult_only_or_unrated_games` option from `false` to `true`.
+
+# Offical Games
+### Common Game Constraints
+- Complete a trial without losing a life.
+- Complete a trial without losing a life and without using a bomb.
 
 ## Touhou Youyoumu ~ Perfect Cherry Blossom
 ### Objectives
@@ -146,6 +151,20 @@ All objectives on this category are considered difficult and time consuming.
 - Beat a random stage as a random character with (0.00-4.00) Power or greater remaining in Point Device mode
 - Beat a random stage as a random character with (0.00-4.00) Power or greater remaining in Legacy mode
 
-### Common Game Constraints
-- Complete a trial without losing a life.
-- Complete a trial without losing a life and without using a bomb.
+# Fangames
+
+## Sleeper Hunt (Touhou Artificial Dream in Arcadia)
+### Constraints
+- Have a specific type of Yokai Grimore enabled
+
+### Objectives
+<ins>Hijacking</ins>
+- Hijack a sleeper of a specific race
+- Hijack a sleeper with a specific affinity to a specific element
+  - Physical and Electric are consider their own type of objectives due to not having all types of affinites across sleepers
+
+<ins>Fusing</ins>
+- Fuse sleepers to make a sleeper of a specific race
+- Fuse sleepers to make sleeper with a specific affinity to a specific element
+  - Physical and Electric are consider their own type of objectives due to not having all types of affinites across sleepers
+
