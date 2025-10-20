@@ -49,7 +49,7 @@ class SleeperHuntGame(Game):
                 weight=4,
             ),
             GameObjectiveTemplate(
-                label="Hijack a sleeper with the that has a AFFINITY to ELEMENT",
+                label="Hijack a sleeper with the that has a AFFINITY affinity to ELEMENT",
                 data={
                     "AFFINITY": (self.elements_affinities, 1),
                     "ELEMENT":  (self.elements, 1)
@@ -59,7 +59,7 @@ class SleeperHuntGame(Game):
                 weight=3,
             ),
             GameObjectiveTemplate(
-                label="Hijack a sleeper with the that has a AFFINITY to Physical",
+                label="Hijack a sleeper with the that has a AFFINITY affinity to Physical",
                 data={
                     "AFFINITY": (self.element_physical_affinities, 1),
                 },  
@@ -68,7 +68,7 @@ class SleeperHuntGame(Game):
                 weight=2,
             ),
             GameObjectiveTemplate(
-                label="Hijack a sleeper with the that has a AFFINITY to Electric",
+                label="Hijack a sleeper with the that has a AFFINITY affinity to Electric",
                 data={
                     "AFFINITY": (self.element_electric_affinities, 1),
                 },  
@@ -86,7 +86,7 @@ class SleeperHuntGame(Game):
                 weight=2,
             ),
             GameObjectiveTemplate(
-                label="Fuse sleepers to make a sleeper with the that has a AFFINITY to ELEMENT",
+                label="Fuse sleepers to make a sleeper with the that has a AFFINITY affinity to ELEMENT",
                 data={
                     "AFFINITY": (self.elements_affinities, 1),
                     "ELEMENT":  (self.elements, 1)
@@ -96,7 +96,7 @@ class SleeperHuntGame(Game):
                 weight=2,
             ),
             GameObjectiveTemplate(
-                label="Fuse sleepers to make a sleeper with the that has a AFFINITY to Physical",
+                label="Fuse sleepers to make a sleeper with the that has a AFFINITY affinity to Physical",
                 data={
                     "AFFINITY": (self.element_physical_affinities, 1),
                 },  
@@ -105,7 +105,7 @@ class SleeperHuntGame(Game):
                 weight=1,
             ),
             GameObjectiveTemplate(
-                label="Fuse sleepers to make a sleeper with the that has a AFFINITY to Electric",
+                label="Fuse sleepers to make a sleeper with the that has a AFFINITY affinity to Electric",
                 data={
                     "AFFINITY": (self.element_electric_affinities, 1),
                 },  
@@ -185,3 +185,4 @@ class SleeperHuntGame(Game):
             "Drain",
         ]
     
+
