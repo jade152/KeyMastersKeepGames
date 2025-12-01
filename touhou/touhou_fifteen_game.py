@@ -4,6 +4,8 @@ from typing import List
 
 from dataclasses import dataclass
 
+from Options import Toggle
+
 from ..game import Game
 from ..game_objective_template import GameObjectiveTemplate
 
@@ -12,7 +14,8 @@ from ..enums import KeymastersKeepGamePlatforms
 
 @dataclass
 class TouhouFifteenArchipelagoOptions:
-    pass
+    touhou_fifteen_scoresanity: TouhouFifteenScoresanity
+    touhou_fifteen_grazesanity: TouhouFifteenGrazesanity
 
 
 class TouhouFifteenGame(Game):
@@ -38,20 +41,22 @@ class TouhouFifteenGame(Game):
         ]
 
     def game_objective_templates(self) -> List[GameObjectiveTemplate]:
-        return [
+        game_objective_templates: List[GameObjectiveTemplate] = list()
+
+        game_objective_templates.extend([
             GameObjectiveTemplate(
-                label="Score SCORE points or greater on SPELL_CARDS on Easy as CHARACTER",
+                label="Capture SPELL_CARDS on Easy as CHARACTER",
                 data={
                     "SCORE": (self.score_range, 1),
                     "SPELL_CARDS": (self.spell_cards_easy_normal, 1),
                     "CHARACTER": (self.player_characters, 1),
-                },
-                is_time_consuming=False,
-                is_difficult=False,
-                weight=2,
+                    },
+                    is_time_consuming=False,
+                    is_difficult=False,
+                    weight=2,
             ),
             GameObjectiveTemplate(
-                label="Score SCORE points or greater on SPELL_CARDS on Normal as CHARACTER",
+                label="Capture SPELL_CARDS on Normal as CHARACTER",
                 data={
                     "SCORE": (self.score_range, 1),
                     "SPELL_CARDS": (self.spell_cards_easy_normal, 1),
@@ -62,7 +67,7 @@ class TouhouFifteenGame(Game):
                 weight=3,
             ),
             GameObjectiveTemplate(
-                label="Score SCORE points or greater on SPELL_CARDS on Easy as CHARACTER",
+                label="Capture SPELL_CARDS on Easy as CHARACTER",
                 data={
                     "SCORE": (self.score_range, 1),
                     "SPELL_CARDS": (self.spell_cards_easy_normal_hard, 1),
@@ -73,7 +78,7 @@ class TouhouFifteenGame(Game):
                 weight=2,
             ),
             GameObjectiveTemplate(
-                label="Score SCORE points or greater on SPELL_CARDS on Normal as CHARACTER",
+                label="Capture SPELL_CARDS on Normal as CHARACTER",
                 data={
                     "SCORE": (self.score_range, 1),
                     "SPELL_CARDS": (self.spell_cards_easy_normal_hard, 1),
@@ -84,7 +89,7 @@ class TouhouFifteenGame(Game):
                 weight=3,
             ),
             GameObjectiveTemplate(
-                label="Score SCORE points or greater on SPELL_CARDS on Hard as CHARACTER",
+                label="Capture SPELL_CARDS on Hard as CHARACTER",
                 data={
                     "SCORE": (self.score_range, 1),
                     "SPELL_CARDS": (self.spell_cards_easy_normal_hard, 1),
@@ -95,7 +100,7 @@ class TouhouFifteenGame(Game):
                 weight=3,
             ),
             GameObjectiveTemplate(
-                label="Score SCORE points or greater on SPELL_CARDS on Hard as CHARACTER",
+                label="Capture SPELL_CARDS on Hard as CHARACTER",
                 data={
                     "SCORE": (self.score_range, 1),
                     "SPELL_CARDS": (self.spell_cards_hard_lunatic, 1),
@@ -106,7 +111,7 @@ class TouhouFifteenGame(Game):
                 weight=2,
             ),
             GameObjectiveTemplate(
-                label="Score SCORE points or greater on SPELL_CARDS on Lunatic as CHARACTER",
+                label="Capture SPELL_CARDS on Lunatic as CHARACTER",
                 data={
                     "SCORE": (self.score_range, 1),
                     "SPELL_CARDS": (self.spell_cards_hard_lunatic, 1),
@@ -117,7 +122,7 @@ class TouhouFifteenGame(Game):
                 weight=2,
             ),
             GameObjectiveTemplate(
-                label="Score SCORE points or greater on SPELL_CARDS as CHARACTER",
+                label="Capture SPELL_CARDS as CHARACTER",
                 data={
                     "SCORE": (self.score_range, 1),
                     "SPELL_CARDS": (self.spell_cards_hard_only, 1),
@@ -128,7 +133,7 @@ class TouhouFifteenGame(Game):
                 weight=1,
             ),
             GameObjectiveTemplate(
-                label="Score SCORE points or greater on SPELL_CARDS as CHARACTER",
+                label="Capture SPELL_CARDS as CHARACTER",
                 data={
                     "SCORE": (self.score_range, 1),
                     "SPELL_CARDS": (self.spell_cards_lunatic_only, 1),
@@ -139,7 +144,7 @@ class TouhouFifteenGame(Game):
                 weight=1,
             ),
             GameObjectiveTemplate(
-                label="Score SCORE points or greater on SPELL_CARDS as CHARACTER",
+                label="Capture SPELL_CARDS as CHARACTER",
                 data={
                     "SCORE": (self.score_range, 1),
                     "SPELL_CARDS": (self.spell_cards_extra, 1),
@@ -150,6 +155,185 @@ class TouhouFifteenGame(Game):
                 weight=1,
             ),
             GameObjectiveTemplate(
+                label="Capture SPELL_CARDS on Easy as CHARACTER",
+                data={
+                    "SCORE": (self.score_range, 1),
+                    "SPELL_CARDS": (self.spell_cards_all, 1),
+                    "CHARACTER": (self.player_characters, 1),
+                },
+                is_time_consuming=False,
+                is_difficult=False,
+                weight=2,
+            ),
+            GameObjectiveTemplate(
+                label="Capture SPELL_CARDS on Normal as CHARACTER",
+                data={
+                    "SCORE": (self.score_range, 1),
+                    "SPELL_CARDS": (self.spell_cards_all, 1),
+                    "CHARACTER": (self.player_characters, 1),
+                },
+                is_time_consuming=False,
+                is_difficult=False,
+                weight=3,
+            ),
+            GameObjectiveTemplate(
+                label="Capture SPELL_CARDS on Hard as CHARACTER",
+                data={
+                    "SCORE": (self.score_range, 1),
+                    "SPELL_CARDS": (self.spell_cards_all, 1),
+                    "CHARACTER": (self.player_characters, 1),
+                },
+                is_time_consuming=False,
+                is_difficult=True,
+                weight=3,
+            ),
+            GameObjectiveTemplate(
+                label="Capture SPELL_CARDS on Lunatic as CHARACTER",
+                data={
+                    "SCORE": (self.score_range, 1),
+                    "SPELL_CARDS": (self.spell_cards_all, 1),
+                    "CHARACTER": (self.player_characters, 1),
+                },
+                is_time_consuming=False,
+                is_difficult=True,
+                weight=2,
+            ),
+            GameObjectiveTemplate(
+                label="Beat STAGE as CHARACTER",
+                data={
+                    "BOSS": (self.bosses, 1),
+                    "CHARACTER": (self.player_characters, 1),
+                    "POWER": (self.power_range, 1),
+                },
+                is_time_consuming=False,
+                is_difficult=False,
+                weight=2,
+            ),
+            GameObjectiveTemplate(
+                label="Beat BOSS as CHARACTER",
+                data={
+                    "BOSS": (self.bosses, 1),
+                    "CHARACTER": (self.player_characters, 1),
+                },
+                is_time_consuming=False,
+                is_difficult=False,
+                weight=2,
+            ),
+        ])
+
+        if self.include_scoresanity:
+            game_objective_templates.extend([
+                    GameObjectiveTemplate(
+                        label="Score SCORE points or greater on SPELL_CARDS on Easy as CHARACTER",
+                        data={
+                            "SCORE": (self.score_range, 1),
+                            "SPELL_CARDS": (self.spell_cards_easy_normal, 1),
+                            "CHARACTER": (self.player_characters, 1),
+                        },
+                        is_time_consuming=False,
+                        is_difficult=False,
+                        weight=2,
+                    ),
+                    GameObjectiveTemplate(
+                    label="Score SCORE points or greater on SPELL_CARDS on Normal as CHARACTER",
+                    data={
+                        "SCORE": (self.score_range, 1),
+                        "SPELL_CARDS": (self.spell_cards_easy_normal, 1),
+                        "CHARACTER": (self.player_characters, 1),
+                    },
+                    is_time_consuming=False,
+                    is_difficult=False,
+                    weight=3,
+                    ),
+                    GameObjectiveTemplate(
+                    label="Score SCORE points or greater on SPELL_CARDS on Easy as CHARACTER",
+                    data={
+                        "SCORE": (self.score_range, 1),
+                        "SPELL_CARDS": (self.spell_cards_easy_normal_hard, 1),
+                        "CHARACTER": (self.player_characters, 1),
+                    },
+                    is_time_consuming=False,
+                    is_difficult=False,
+                    weight=2,
+                    ),
+                    GameObjectiveTemplate(
+                    label="Score SCORE points or greater on SPELL_CARDS on Normal as CHARACTER",
+                    data={
+                        "SCORE": (self.score_range, 1),
+                        "SPELL_CARDS": (self.spell_cards_easy_normal_hard, 1),
+                        "CHARACTER": (self.player_characters, 1),
+                    },
+                    is_time_consuming=False,
+                    is_difficult=False,
+                    weight=3,
+                    ),
+                    GameObjectiveTemplate(
+                    label="Score SCORE points or greater on SPELL_CARDS on Hard as CHARACTER",
+                    data={
+                        "SCORE": (self.score_range, 1),
+                        "SPELL_CARDS": (self.spell_cards_easy_normal_hard, 1),
+                        "CHARACTER": (self.player_characters, 1),
+                    },
+                    is_time_consuming=False,
+                    is_difficult=True,
+                    weight=3,
+                    ),
+                    GameObjectiveTemplate(
+                    label="Score SCORE points or greater on SPELL_CARDS on Hard     as CHARACTER",
+                    data={
+                        "SCORE": (self.score_range, 1),
+                        "SPELL_CARDS": (self.spell_cards_hard_lunatic, 1),
+                        "CHARACTER": (self.player_characters, 1),
+                    },
+                    is_time_consuming=False,
+                    is_difficult=True,
+                    weight=2,
+                    ),
+                    GameObjectiveTemplate(
+                    label="Score SCORE points or greater on SPELL_CARDS on Lunatic as CHARACTER",
+                    data={
+                        "SCORE": (self.score_range, 1),
+                        "SPELL_CARDS": (self.spell_cards_hard_lunatic, 1),
+                        "CHARACTER": (self.player_characters, 1),
+                    },
+                    is_time_consuming=False,
+                    is_difficult=True,
+                    weight=2,
+                    ),
+                    GameObjectiveTemplate(
+                    label="Score SCORE points or greater on SPELL_CARDS as CHARACTER",
+                    data={
+                        "SCORE": (self.score_range, 1),
+                        "SPELL_CARDS": (self.spell_cards_hard_only, 1),
+                        "CHARACTER": (self.player_characters, 1),
+                    },
+                    is_time_consuming=False,
+                    is_difficult=True,
+                    weight=1,
+                    ),
+                    GameObjectiveTemplate(
+                    label="Score SCORE points or greater on SPELL_CARDS as CHARACTER",
+                    data={
+                        "SCORE": (self.score_range, 1),
+                        "SPELL_CARDS": (self.spell_cards_lunatic_only, 1),
+                        "CHARACTER": (self.player_characters, 1),
+                    },
+                is_time_consuming=False,
+                is_difficult=True,
+                weight=1,
+                ),
+                GameObjectiveTemplate(
+                label="Score SCORE points or greater on SPELL_CARDS as CHARACTER",
+                data={
+                    "SCORE": (self.score_range, 1),
+                    "SPELL_CARDS": (self.spell_cards_extra, 1),
+                    "CHARACTER": (self.player_characters, 1),
+                },
+                is_time_consuming=False,
+                is_difficult=False,
+                weight=1,
+                ),
+                GameObjectiveTemplate(
                 label="Score SCORE points or greater on SPELL_CARDS on Easy as CHARACTER",
                 data={
                     "SCORE": (self.score_range, 1),
@@ -159,8 +343,8 @@ class TouhouFifteenGame(Game):
                 is_time_consuming=False,
                 is_difficult=False,
                 weight=2,
-            ),
-            GameObjectiveTemplate(
+                ),
+                GameObjectiveTemplate(
                 label="Score SCORE points or greater on SPELL_CARDS on Normal as CHARACTER",
                 data={
                     "SCORE": (self.score_range, 1),
@@ -170,8 +354,8 @@ class TouhouFifteenGame(Game):
                 is_time_consuming=False,
                 is_difficult=False,
                 weight=3,
-            ),
-            GameObjectiveTemplate(
+                ),
+                GameObjectiveTemplate(
                 label="Score SCORE points or greater on SPELL_CARDS on Hard as CHARACTER",
                 data={
                     "SCORE": (self.score_range, 1),
@@ -181,8 +365,8 @@ class TouhouFifteenGame(Game):
                 is_time_consuming=False,
                 is_difficult=True,
                 weight=3,
-            ),
-            GameObjectiveTemplate(
+                ),
+                GameObjectiveTemplate(
                 label="Score SCORE points or greater on SPELL_CARDS on Lunatic as CHARACTER",
                 data={
                     "SCORE": (self.score_range, 1),
@@ -192,8 +376,12 @@ class TouhouFifteenGame(Game):
                 is_time_consuming=False,
                 is_difficult=True,
                 weight=2,
-            ),
-            GameObjectiveTemplate(
+                ),
+            ])
+        #grazesanity
+        if self.include_grazesanity:
+            game_objective_templates.extend([
+                GameObjectiveTemplate(
                 label="Graze GRAZE times or greater on SPELL_CARDS on Easy as CHARACTER",
                 data={
                     "GRAZE": (self.graze_range, 1),
@@ -347,51 +535,27 @@ class TouhouFifteenGame(Game):
                 is_difficult=True,
                 weight=2,
             ),
-            GameObjectiveTemplate(
-                label="Beat BOSS as CHARACTER with POWER or greater power remaining in Point Device mode",
-                data={
-                    "BOSS": (self.bosses, 1),
-                    "CHARACTER": (self.player_characters, 1),
-                    "POWER": (self.power_range, 1),
-                },
-                is_time_consuming=False,
-                is_difficult=False,
-                weight=2,
-            ),
-            GameObjectiveTemplate(
-                label="Beat BOSS as CHARACTER with POWER or greater power remaining in Legacy mode",
-                data={
-                    "BOSS": (self.bosses, 1),
-                    "CHARACTER": (self.player_characters, 1),
-                    "POWER": (self.power_range, 1),
-                },
-                is_time_consuming=False,
-                is_difficult=False,
-                weight=2,
-            ),
-            GameObjectiveTemplate(
-                label="Beat STAGE as CHARACTER with POWER or greater power remaining in Point Device mode",
-                data={
-                    "STAGE": (self.stages, 1),
-                    "CHARACTER": (self.player_characters, 1),
-                    "POWER": (self.power_range, 1),
-                },
-                is_time_consuming=False,
-                is_difficult=False,
-                weight=2,
-            ),
-            GameObjectiveTemplate(
-                label="Beat STAGE as CHARACTER with POWER or greater power remaining in Legacy mode",
-                data={
-                    "STAGE": (self.stages, 1),
-                    "CHARACTER": (self.player_characters, 1),
-                    "POWER": (self.power_range, 1),
-                },
-                is_time_consuming=False,
-                is_difficult=False,
-                weight=2,
-            ),
-        ]
+        ])
+
+        return game_objective_templates
+
+        
+
+        """"""
+        
+        
+
+            # general scoring gripe: how do i pick the specific right score?
+            # idea: scoresantiy option
+            # without it, objectives are just "caputure/surive SPELL_CARD on DIFFICULTY as CHARACTER"
+
+
+                # Can't choose point device in extra
+                # no way to force it in thprac
+                # solution: split stage options
+                # option a: beat STAGE/BOSS [1 - 6] w/ POWER or greater power as CHARACTER in point device mode
+                # option 2: beat STAGE/BOSS [1 - extra] as character w/ POWER or greater power as CHARACTER
+                # option gamma: beat STAGE/BOSS as CHARACTER
 
     @staticmethod
     def player_characters() -> List[str]:
@@ -540,6 +704,27 @@ class TouhouFifteenGame(Game):
     def score_range() -> range:
         return range(1000, 650001, 1000)
 
+    @property
+    def include_scoresanity(self) -> bool:
+        return bool(self.archipelago_options.touhou_fifteen_scoresanity.value)
+
+    @property
+    def include_grazesanity(self) -> bool:
+        return bool(self.archipelago_options.touhou_fifteen_grazesanity.value)
 
 # Archipelago Options
 # ...
+
+class TouhouFifteenScoresanity(Toggle):
+    """
+    Indicates if the player wants score based challenges
+    """
+
+    display_name = "Scoresanity"
+
+class TouhouFifteenGrazesanity(Toggle):
+    """
+    Indicates if the player wants graze based challenges
+    """
+
+    display_name = "Grazesanity"
