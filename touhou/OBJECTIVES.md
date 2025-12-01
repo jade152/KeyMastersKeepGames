@@ -111,7 +111,29 @@ All objectives on this category are considered difficult and time consuming.
 ## Touhou Kanjuden ~ Legacy of Lunatic Kingdom
 ### Objectives
 
-<ins>Scoring</ins>
+<ins>Spell Cards</ins>
+- Capture/Survive random Easy or Normal spell card on Easy as a random character
+- Capture/Survive random Easy or Normal spell card on Normal as a random character
+- Capture/Survive random Easy, Normal, or Hard spell card on Easy as a random character
+- Capture/Survive random Easy, Normal, or Hard spell card on Normal as a random character
+- Capture/Survive random Easy, Normal, or Hard spell card on Hard as a random character (Difficult)
+- Capture/Survive random Hard or Lunatic spell card on Hard as a random character (Difficult)
+- Capture/Survive random Hard or Lunatic spell card on Lunatic as a random character (Difficult)
+- Capture/Survive random Hard spell card as a random character (Difficult)
+- Capture/Survive random Lunatic spell card as a random character (Difficult)
+- Capture/Survive random Extra spell card as a random character (Difficult)
+- Capture/Survive random spell card on Easy as a random character
+- Capture/Survive random spell card on Normal as a random character
+- Capture/Survive random spell card on Hard as a random character (Difficult)
+- Capture/Survive random spell card on Lunatic as a random character (Difficult)
+
+<ins>Bosses</ins>
+- Beat a random boss as a random character
+
+<ins>Stages</ins>
+- Beat a random stage as a random character
+
+<ins>Scoresanity</ins>
 - Score (1000-650001) points or greater on a random Easy or Normal spell card on Easy as a random character
 - Score (1000-650001) points or greater on a random Easy or Normal spell card on Normal as a random character
 - Score (1000-650001) points or greater on a random Easy, Normal, or Hard spell card on Easy as a random character
@@ -127,7 +149,7 @@ All objectives on this category are considered difficult and time consuming.
 - Score (1000-650001) points or greater on a random spell card on Hard as a random character (Difficult)
 - Score (1000-650001) points or greater on a random spell card on Lunatic as a random character (Difficult)
 
-<ins>Grazing</ins>
+<ins>Grazesantiy</ins>
 - Graze (25-101) times or greater on a random Easy or Normal spell card on Easy as a random character
 - Graze (25-101) times or greater on a random Easy or Normal spell card on Normal as a random character
 - Graze (25-101) times or greater on a random Easy, Normal, or Hard spell card on Easy as a random character
@@ -143,13 +165,10 @@ All objectives on this category are considered difficult and time consuming.
 - Graze (25-101) times or greater on a random spell card on Hard as a random character (Difficult)
 - Graze (25-101) times or greater on a random spell card on Lunatic as a random character (Difficult)
 
-<ins>Bosses</ins>
-- Beat a random boss as a random character with (0.00-4.00) Power or greater remaining in Point Device mode
-- Beat a random boss as a random character with (0.00-4.00) Power or greater remaining in Legacy mode
+### Common Game Constraints
+- Complete a trial without losing a life.
+- Complete a trial without losing a life and without using a bomb.
 
-<ins>Stages</ins>
-- Beat a random stage as a random character with (0.00-4.00) Power or greater remaining in Point Device mode
-- Beat a random stage as a random character with (0.00-4.00) Power or greater remaining in Legacy mode
 
 # Fangames
 
@@ -167,4 +186,5 @@ All objectives on this category are considered difficult and time consuming.
 - Fuse sleepers to make a sleeper of a specific race
 - Fuse sleepers to make sleeper with a specific affinity to a specific element
   - Physical and Electric are consider their own type of objectives due to not having all types of affinites across sleepers
+
 
