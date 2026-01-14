@@ -137,6 +137,13 @@ class ForsakenGame(Game):
             "Pirate Bay",
             "Underground War",
             "C00l Carnival",
+            "The Tempest"
+            "Work at a Pizza Place"
+            "Classic Battlegrounds"
+            "Cake Factory"
+            "Beach House Paradise"
+            "Bloodfell Manor"
+            "Familiar Ruins"
             ]
 
     @staticmethod
@@ -193,6 +200,8 @@ class ForsakenKillersOwned(OptionSet):
         "John Doe",
         "1x1x1x1",
         "Noli",
+        "Guest 666",
+        "Nosferatu"
     ]
 
     default = valid_keys
