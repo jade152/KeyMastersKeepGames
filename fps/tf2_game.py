@@ -116,7 +116,7 @@ class TF2Game(Game):
             GameObjectiveTemplate(
                 label="Win a game as CLASS",
                 data={
-                    "MAP": (self.classes, 1),
+                    "CLASS": (self.classes, 1),
                 },
                 is_time_consuming=True,
                 is_difficult=False,
