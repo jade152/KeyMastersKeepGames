@@ -708,7 +708,6 @@ class TF2Game(Game):
             "Disciplinary Action",
             "Market Gardener",
             "Escape Plan",
-            "Panic Attack",
             ]
 
     @functools.cached_property
@@ -732,7 +731,7 @@ class TF2Game(Game):
             "Flare Gun",
             "Detonator",
             "Manmelter",
-            "Scortch Shot",
+            "Scorch Shot",
             "Thermal Thruster",
             "Gas Passer",
             ]
@@ -771,11 +770,11 @@ class TF2Game(Game):
         return [
             "Stickybomb Launcher",
             "Scottish Resistance",
-            "Chargnin' Targe",
+            "Chargin' Targe",
             "Sticky Jumper",
             "Splendid Screen",
             "Tide Turner",
-            "Quickebomb Launcher",
+            "Quickiebomb Launcher",
             ]
 
     @functools.cached_property
