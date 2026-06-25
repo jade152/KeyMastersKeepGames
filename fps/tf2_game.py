@@ -666,7 +666,7 @@ class TF2Game(Game):
             "Sun-on-a-Stick",
             "Fan O\'War",
             "Atomizer",
-            "Wrap Assasin",
+            "Wrap Assassin",
             ]
 
     @functools.cached_property
@@ -708,7 +708,6 @@ class TF2Game(Game):
             "Disciplinary Action",
             "Market Gardener",
             "Escape Plan",
-            "Panic Attack",
             ]
 
     @functools.cached_property
@@ -732,7 +731,7 @@ class TF2Game(Game):
             "Flare Gun",
             "Detonator",
             "Manmelter",
-            "Scortch Shot",
+            "Scorch Shot",
             "Thermal Thruster",
             "Gas Passer",
             ]
@@ -771,11 +770,11 @@ class TF2Game(Game):
         return [
             "Stickybomb Launcher",
             "Scottish Resistance",
-            "Chargnin' Targe",
+            "Chargin' Targe",
             "Sticky Jumper",
             "Splendid Screen",
             "Tide Turner",
-            "Quickebomb Launcher",
+            "Quickiebomb Launcher",
             ]
 
     @functools.cached_property
@@ -821,7 +820,7 @@ class TF2Game(Game):
         return [
             "Wrench",
             "Gunslinger",
-            "Souther Hospitality",
+            "Southern Hospitality",
             "Jag",
             "Eureka Effect",
             ]
@@ -841,7 +840,7 @@ class TF2Game(Game):
     def all_heavy_secondaries(self) -> List[str]:
         return [
             "Shotgun",
-            "Family Buisness",
+            "Family Business",
             "Sandvich",
             "Robo-Sandvich",
             "Dalokohs Bar",
